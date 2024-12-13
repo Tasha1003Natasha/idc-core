@@ -64,6 +64,13 @@ export const EditOID = ({
           const newValue = val ? val : inputValue;
           handleSaveValue(newValue);
         }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            handleSaveValue(inputValue);
+            (e.target as HTMLInputElement).blur();
+          }
+        }}
         onFocus={() => {
           handleSaveValue(inputValue);
         }}
